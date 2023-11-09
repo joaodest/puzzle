@@ -232,16 +232,10 @@
 
                 if (pwd === "$##%@#" || pwd === "hope") {
 
-                    alert("Acesso liberado! Temos um pequeno presente para voce.\nEm algum lugar por aqui...");
+                    alert("Acesso liberado! Temos um pequeno presente para voce.");
 
-                    console.log("Credenciais de acesso do ██████")
-                    console.log("------------------------------------------------");
-                    console.log("email: adm.codingfuture" + "@" + "gmail.com");
-
-                    console.log("------------------------------------------------");
-                    console.log("senha: $##%@#hope")
-                    console.log("------------------------------------------------");
-
+                    setTimeout(2000);
+                    window.location.href = "login.html";
 
                 } else {
                     alert("Acesso indevido detectado... Iniciando protocolo de contencao.");
