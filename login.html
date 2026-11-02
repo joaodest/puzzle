@@ -1,21 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="theme-color" content="#040404">
+    <title>$##%@#</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+Runic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/cicada.css">
 </head>
 
 <body>
-    <p>login: adm.codingfuture@gmail.com</p>
-    </p>senha: $##%@#hope</p>
+    <div class="runas"></div>
+    <div class="runas runas--direita"></div>
 
+    <main class="tela">
+        <section class="presente">
+            <h1 class="titulo glitch">Um pequeno presente</h1>
 
-    <p>Não se esqueca de procurar em todos os cantos</p>
+            <div class="terminal">
+                <div class="terminal-barra"><span>transmissao.txt</span><span class="led"></span></div>
+                <div class="terminal-corpo">
+                    <dl>
+                        <div class="credencial ln">
+                            <dt>login:</dt>
+                            <dd data-decrypt>adm.codingfuture@gmail.com</dd>
+                        </div>
+                        <div class="credencial ln" data-pausa="300">
+                            <dt>senha:</dt>
+                            <dd data-decrypt>$##%@#hope</dd>
+                        </div>
+                    </dl>
+                    <p class="dica ln" data-decrypt>Não se esqueça de procurar em todos os cantos.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="assets/cicada.js"></script>
+    <script>
+        setTimeout(() => fx.revela(document.querySelectorAll('.terminal-corpo .ln'), 950), 1000);
+
+        console.log('%c%s', 'color:#d81e2b;font:600 22px monospace;text-shadow:0 0 8px #d81e2b', '$##%@#');
+        console.log(new URL('assets/cypher.jpg', location.href).href);
+    </script>
 </body>
-<script>
-    console.log("https://i.ibb.co/9VZV3ZX/cypher.jpg")
-</script>
 
 </html>
