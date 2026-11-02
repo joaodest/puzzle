@@ -4,270 +4,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#040404">
     <title>$##%@#</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #eaeaea;
-            color: #000;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            position: relative;
-            padding: 20rem;
-            border: 2px solid #555;
-            margin: 50px auto;
-            width: 80%;
-            text-align: left;
-        }
-
-        .demo-wrap {
-            overflow: hidden;
-            position: relative;
-        }
-
-        .demo-bg {
-            opacity: 0.1;
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: auto;
-            filter: grayscale(100%) blur(2px);
-        }
-
-
-
-        span,
-        strong {
-            color: rgb(223, 32, 105);
-        }
-
-        strong {
-            font-size: large;
-            font-weight: 600;
-        }
-
-        h1 {
-            font-size: 24px;
-        }
-
-        .interativo {
-            font-size: 18px;
-            cursor: pointer;
-            color: #4CAF50;
-        }
-
-        .background-black {
-            background-color: #000;
-        }
-
-        .background-red {
-            background-color: #FF0000;
-        }
-
-        .background-white {
-            background-color: #FFF;
-        }
-
-        /* Adicione uma classe para esconder a imagem de fundo */
-        .no-background-image {
-            background: none;
-        }
-
-        .transcricao {
-            font-size: 16px;
-            text-align: left;
-            margin: 20px;
-        }
-
-        .sair {
-            font-size: 18px;
-            cursor: pointer;
-            color: #848a84;
-        }
-
-        .row {
-            display: inline;
-        }
-
-        .element {
-            background-color: #333;
-            /* Cor de fundo igual à cor do texto */
-            color: #fff;
-            /* Cor do texto */
-
-        }
-
-        .text-button {
-            background: none;
-            border: none;
-            color: rgb(223, 32, 105);
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        .text-button:hover {
-            text-decoration: underline;
-        }
-
-        .blockquote-container {
-            margin: 20px;
-            padding: 20px;
-            border: 2px solid #333;
-            background-color: #F5E9D7;
-            font-family: "Courier New", Courier, monospace;
-            text-align: left;
-        }
-
-        blockquote .data {
-            color: rgb(192, 4, 4);
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+Runic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/cicada.css">
 </head>
 
 <body>
+    <img class="mariposa" src="assets/moth.png" alt="" id="bg-moth">
+    <div class="runas"></div>
+    <div class="runas runas--direita"></div>
 
-    <div class="demo-wrap">
-        <img class="demo-bg" src="./assets/moth.png" alt="moth" id="bg-moth">
-        <div class="demo-content">
-            <div class="container">
-                <h1>Registro de Missão</h1>
-                <strong>[Confidencial]</strong>
-                <div class="transcricao">
+    <main class="tela">
+        <article class="dossie">
+            <header class="dossie-cabeca">
+                <h1 class="titulo glitch">Registro de Missão</h1>
+                <span class="carimbo">Confidencial</span>
+            </header>
 
-                    <p><b>Data de ocorrencia: </b>12/05/2021</p>
-                    <hr>
-
-                    <p><b>Descrição: </b> O seguinte dominio "█████████" apresenta anomalias, não eh
-                        recomendavel
-                        que quaisquer membro da organizacao utilize-a sem o devido treinamento.
-                        Alguns membros relatam nauseas, inquietacoes e ansiedade ao tentar descobrir mais sobre a
-                        anomalia.</p>
-
-                    <p><b>Procedimentos Especiais de Contenção:</b>Tanto o dominio do site quanto as formas de
-                        acessa-los estão presentes no
-                        <strong>[REDACTED]</strong>.
-                        Contudo, nenhum membro com nivel inferior a <b>Ert</b> deve
-                        acessa-lo.
-                    </p>
-
-                    <br />
-                    <button class="text-button" onclick="toggleBlockquote()"><strong>Visualizar
-                            transcrição</strong></button>
-                    <div class="blockquote-container" id="blockquote-container" style="display: none;">
-                        <blockquote>
-                            <p class="data" style="font-weight: light;">
-                                <b style="font-weight: bolder; font-size: large;">SOLICITACAO=</b>"Entrevista_4000_0215"
-                            </p>
-                            <p class="data">.</p>
-                            <p class="data">.</p>
-                            <p class="data">.</p>
-
-                            <b class="data" style="font-weight: bolder; font-size: larger;">[ACESSO: NEGADO]</b>
-                            </p>
-                            <b class="data" style="font-weight: bold; font-size: large;">[Dados expurgados.]</b>
-
-                            <p class="data">.</p>
-                            <p class="data">.</p>
-                            <p class="data">.</p>
-
-                            <p class="data" style="font-weight: light;">
-                                <b style="font-weight: bolder; font-size: large;">SOLICITACAO=</b>"Entrevista_4000_0215"
-                            </p>
-                            <p class="data" style="font-weight: light;">
-                                <b style="font-weight: bolder; font-size: large;">CREDENCIAIS=</b>"EJAPERS/M4d754pARte3"
-                            </p>
-                            <p class="data">.</p>
-                            <p class="data">.</p>
-                            <p class="data">.</p>
-                            <b class="data" style="font-weight: bolder; font-size: larger;">[ACESSO: CONCEDIDO]</b>
-                            </p>
-
-                            <b class="data" style="font-weight: bold; font-size: large;">[Seja bem-vindo
-                                █████████]</b>
-                            <br />
-                            <p style="font-weight: bold;"><b>[INICIO DA TRANSCRICAO]</b></p>
-                            <br />
-                            <p><b>Entrevistadora:</b> Dra. █████████.</p>
-                            <br />
-                            <p><b>Dra. █████████</b>: O que aconteceram nestes ultimos meses, voce relata que não dorme
-                                mais, o que aconteceu?
-                            </p>
-                            <p><b>Entrevistado</b>: O que %@#quer que seja aquilo, estava$##% espalhado por todo lugar,
-                                impregnado,
-                                como um virus,
-                                em pouco tempo eu ja não tinha mais controle...
-                            </p>
-
-                            <p><b>Dra. █████████:</b> Voce pode me dizer como estes "simbolos" se pareciam?</p>
-                            <p><b>Entrevistado</b> Quase não posso, eh como se fosse uma longa e estranha repeticao de
-                                alguns simbolos. Principalmente <strong>$##%@#</strong></p>
-                            <br />
-                            <p><b>Comentário Inicial:</b> Entre$##vista cond%@#%@#uzida em 202█ durante alguns
-                                incidentes
-                                envol$##vendo os sist%@#emas da Fundacao.</p>
-                            <br />
-
-                            <p style="font-weight: bold;"><b>[<b>FIM</b> $##%%@#%@!@~#%~@#@#$ <b>DA</b> !$!@!@$##!%$
-                                    <b>TRANSCRICAO]</b> </b></p>
-
-                        </blockquote>
-                    </div>
-                    <div class="row">
-                        <p class="interativo" onclick="mensagemInterativa()">Prosseguir.</p>
-                        <p class="sair" onclick="sair()">Voltar.</p>
-                    </div>
-
+            <dl class="campos">
+                <div>
+                    <dt>Data de ocorrência</dt>
+                    <dd>12/05/2021</dd>
                 </div>
+                <div>
+                    <dt>Descrição</dt>
+                    <dd>
+                        <p>O seguinte domínio "<span class="censura">█████████</span>" apresenta anomalias. Não é
+                            recomendável que qualquer membro da organização o utilize sem o devido treinamento.</p>
+                        <p>Alguns membros relatam náuseas, inquietações e intensa ansiedade ao tentar explorar seu
+                            conteúdo.</p>
+                    </dd>
+                </div>
+                <div>
+                    <dt>Procedimentos especiais de contenção</dt>
+                    <dd>
+                        <p>Tanto o domínio do site quanto as formas de acessá-lo estão presentes no documento
+                            <span class="sigilo">[REDACTED]</span>. Contudo, nenhum membro com nível inferior a
+                            <b>Ert</b> deve acessá-lo.</p>
+                    </dd>
+                </div>
+            </dl>
+
+            <button class="acao" type="button" id="abrir-transcricao" aria-expanded="false"
+                aria-controls="blockquote-container">[ visualizar transcrição ]</button>
+
+            <section class="terminal" id="blockquote-container" aria-label="Transcrição da entrevista" hidden>
+                <div class="terminal-barra"><span>Entrevista_4000_0215.log</span><span class="led"></span></div>
+                <div class="terminal-corpo">
+                    <p class="ln ln--alerta" data-decrypt>SOLICITAÇÃO="Entrevista_4000_0215"</p>
+                    <p class="ln ln--sistema">.</p>
+                    <p class="ln ln--sistema">.</p>
+                    <p class="ln ln--sistema" data-pausa="300">.</p>
+                    <p class="ln ln--alerta" data-decrypt data-pausa="200">[ACESSO: NEGADO]</p>
+                    <p class="ln ln--alerta" data-decrypt data-pausa="500">[Dados expurgados.]</p>
+                    <p class="ln ln--sistema">.</p>
+                    <p class="ln ln--sistema">.</p>
+                    <p class="ln ln--sistema">.</p>
+                    <p class="ln ln--alerta" data-decrypt>SOLICITAÇÃO="Entrevista_4000_0215"</p>
+                    <p class="ln ln--alerta" data-decrypt data-pausa="200">CREDENCIAIS="EJAPERS/M4d754pARte3"</p>
+                    <p class="ln ln--sistema">.</p>
+                    <p class="ln ln--sistema">.</p>
+                    <p class="ln ln--sistema" data-pausa="400">.</p>
+                    <p class="ln" data-decrypt data-pausa="200">[ACESSO: CONCEDIDO]</p>
+                    <p class="ln" data-pausa="400">[Seja bem-vindo, <span class="censura">█████████</span>]</p>
+
+                    <p class="ln ln--espaco" data-decrypt data-pausa="300">[INÍCIO DA TRANSCRIÇÃO]</p>
+
+                    <p class="ln ln--espaco"><b>Entrevistadora:</b> Dra. <span class="censura">█████████</span>.</p>
+                    <p class="ln ln--espaco" data-pausa="300"><b>Dra. <span class="censura">█████████</span>:</b> O
+                        que aconteceu nestes últimos meses? Você relata que não dorme mais. O que aconteceu?</p>
+                    <p class="ln" data-pausa="300"><b>Entrevistado:</b> O que %@#quer que seja aquilo, estava$##%
+                        espalhado por todo lugar, impregnado, como um vírus. Em pouco tempo eu já não tinha mais
+                        controle...</p>
+                    <p class="ln" data-pausa="300"><b>Dra. <span class="censura">█████████</span>:</b> Você pode me
+                        dizer como esses "símbolos" se pareciam?</p>
+                    <p class="ln" data-pausa="400"><b>Entrevistado:</b> Quase não posso. É como se fosse uma longa e
+                        estranha repetição de alguns símbolos. Principalmente a sequência
+                        <span class="sigilo">$##%@#</span>.</p>
+
+                    <p class="ln ln--espaco"><b>Comentário inicial:</b> Entre$##vista cond%@#%@#uzida em 202█
+                        durante alguns incidentes envol$##vendo os sist%@#emas da Fundação.</p>
+
+                    <p class="ln ln--espaco ln--alerta"><b>[FIM</b> $##%%@#%@!@~#%~@#@#$ <b>DA</b> !$!@!@$##!%$
+                        <b>TRANSCRIÇÃO]</b></p>
+                </div>
+            </section>
+
+            <nav class="acoes" aria-label="Navegação">
+                <button class="acao" type="button" id="prosseguir">[ prosseguir ]</button>
+                <a class="acao acao--fraca" href="primeira-etapa.html" data-transicao>[ voltar ]</a>
+            </nav>
+        </article>
+    </main>
+
+    <dialog class="console" id="console" aria-labelledby="console-titulo">
+        <form id="form-senha">
+            <p class="ln on ln--sistema" id="console-titulo">&gt; autenticação requerida</p>
+            <div class="console-entrada">
+                <label for="senha">&gt; senha:</label>
+                <input id="senha" name="senha" type="password" autocomplete="off" autocapitalize="off"
+                    spellcheck="false" required>
             </div>
-        </div>
-        <script>
+            <div class="console-saida" aria-live="polite"></div>
+            <div class="console-rodape">
+                <button class="acao" type="submit">[ enviar ]</button>
+                <button class="acao acao--fraca" type="button" id="cancelar">[ cancelar ]</button>
+            </div>
+        </form>
+    </dialog>
 
-            function mensagemInterativa() {
-                const pwd = prompt("Password: ");
+    <script src="assets/cicada.js"></script>
+    <script>
+        const botaoTranscricao = document.getElementById('abrir-transcricao');
+        const transcricao = document.getElementById('blockquote-container');
+        const consoleSenha = document.getElementById('console');
+        const form = document.getElementById('form-senha');
+        const campo = document.getElementById('senha');
+        const saida = consoleSenha.querySelector('.console-saida');
+        let ocupado = false;
 
-                if (pwd === "$##%@#" || pwd === "hope") {
+        function toggleBlockquote() {
+            const abrir = transcricao.hidden;
+            transcricao.hidden = !abrir;
+            botaoTranscricao.setAttribute('aria-expanded', String(abrir));
+            botaoTranscricao.textContent = abrir ? '[ ocultar transcrição ]' : '[ visualizar transcrição ]';
+            if (!abrir) return;
+            const linhas = transcricao.querySelectorAll('.ln');
+            linhas.forEach((ln) => ln.classList.remove('on', 'cursor'));
+            fx.surto(1);
+            fx.revela(linhas, 140);
+        }
 
-                    alert("Acesso liberado! Temos um pequeno presente para voce.");
+        async function escreve(texto, classe = '') {
+            const ln = document.createElement('p');
+            ln.className = `ln on ${classe}`;
+            ln.textContent = texto;
+            saida.append(ln);
+            await fx.decifra(ln, 500);
+            await fx.espera(350);
+        }
 
-                    setTimeout(2000);
-                    window.location.href = "login.html";
+        function mensagemInterativa() {
+            if (ocupado) return;
+            saida.replaceChildren();
+            campo.value = '';
+            consoleSenha.showModal();
+            campo.focus();
+        }
 
-                } else {
-                    alert("Acesso indevido detectado... Iniciando protocolo de contencao.");
-                    document.body.classList.add('no-background-image');
-                    startBackgroundAnimation();
-                }
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if (ocupado) return;
+            ocupado = true;
+            const pwd = campo.value.trim();
+            campo.value = '';
+            saida.replaceChildren();
+            await escreve('> verificando credenciais...', 'ln--sistema');
 
+            if (pwd === "$##%@#" || pwd === "hope") {
+                fx.sfx('ok');
+                await escreve('> acesso liberado.');
+                await escreve('> temos um pequeno presente para você.');
+                await fx.espera(900);
+                consoleSenha.close();
+                fx.sai('login.html');
+                ocupado = false;
+            } else {
+                fx.sfx('erro');
+                fx.surto(2);
+                await escreve('> acesso indevido detectado.', 'ln--alerta');
+                await escreve('> iniciando protocolo de contenção...', 'ln--alerta');
+                await fx.espera(500);
+                consoleSenha.close();
+                fx.contencao();
+                ocupado = false;
             }
+        });
 
-            function startBackgroundAnimation() {
-
-                let colors = ["background-black", "background-red", "background-white"];
-                let currentIndex = 0;
-
-                setInterval(function () {
-                    document.body.className = colors[currentIndex];
-                    currentIndex = (currentIndex + 1) % colors.length;
-                }, 3000);
-            }
-
-            function sair() {
-                window.location.href = "primeira-etapa.html";
-            }
-            function toggleBlockquote() {
-                const blockquoteContainer = document.getElementById('blockquote-container');
-                if (blockquoteContainer.style.display === 'none' || blockquoteContainer.style.display === '') {
-                    blockquoteContainer.style.display = 'block';
-                } else {
-                    blockquoteContainer.style.display = 'none';
-                }
-            }
-        </script>
+        botaoTranscricao.addEventListener('click', toggleBlockquote);
+        document.getElementById('prosseguir').addEventListener('click', mensagemInterativa);
+        document.getElementById('cancelar').addEventListener('click', () => consoleSenha.close());
+        consoleSenha.addEventListener('cancel', (e) => { if (ocupado) e.preventDefault(); });
+    </script>
 </body>
 
 </html>
