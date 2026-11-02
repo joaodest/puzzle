@@ -30,6 +30,7 @@ body {
   background: var(--bg);
   color: var(--fg);
   font: 400 15px/1.75 var(--fonte-mono);
+  font-variant-numeric: lining-nums;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
@@ -341,7 +342,7 @@ body::after {
 
 .cor:hover { filter: none; animation: treme .25s steps(2); }
 
-.cor[aria-pressed="true"] {
+.cor:active {
   filter: brightness(1.1);
   box-shadow: 0 0 0 1px var(--fg), 0 0 48px -8px var(--c);
 }
@@ -487,18 +488,181 @@ body::after {
 
 .console-rodape { display: flex; gap: var(--e3); margin-top: var(--e2); }
 
-/* ---------- Presente ---------- */
+/* ---------- Trilha dos testes ---------- */
 
-.presente { width: min(46ch, 100%); }
-.presente .titulo { font-size: clamp(2rem, 6vw, 3.4rem); }
-.presente .terminal { margin-top: var(--e3); }
+.trilha { display: flex; justify-content: center; gap: 12px; margin-bottom: var(--e3); }
+.dossie .trilha { justify-content: flex-start; }
 
-.presente dl { margin: 0; }
-.credencial { display: flex; gap: .75rem; flex-wrap: wrap; margin: 0 0 .4rem; }
-.credencial dt { color: var(--fg-suave); }
-.credencial dd { margin: 0; word-break: break-all; }
+.trilha span {
+  width: 7px;
+  height: 7px;
+  border: 1px solid var(--fg-apagado);
+  transform: rotate(45deg);
+}
 
-.dica { margin: var(--e3) 0 0; color: var(--fg-suave); }
+.trilha span.on { background: var(--fg-suave); border-color: var(--fg-suave); }
+
+.trilha span.atual {
+  background: var(--sinal);
+  border-color: var(--sinal);
+  box-shadow: 0 0 10px var(--sinal);
+  animation: pisca 1.1s steps(1) infinite;
+}
+
+/* Cabeçalho de documento da Fundação */
+.cabecalho {
+  margin: 0 0 var(--e2);
+  color: var(--fg-suave);
+  font-size: .8rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+/* ---------- Teste de percepção ---------- */
+
+.codigos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .3rem 1.4rem;
+  margin: var(--e2) 0 0;
+  padding: 0;
+  list-style: none;
+  font: 500 clamp(1rem, 3.6vw, 1.35rem)/1.5 var(--fonte-mono);
+  letter-spacing: .12em;
+}
+
+/* ---------- Tarja mal aplicada: pinta por cima, mas o texto continua ali ---------- */
+
+.tarja {
+  padding: 0 .15em;
+  background: var(--fg-suave);
+  color: var(--fg-suave);
+}
+
+/* ---------- Pistas ---------- */
+
+.pistas { margin-top: var(--e4); }
+.pista { max-width: 60ch; margin: var(--e1) auto 0; color: var(--fg-suave); font-size: .9rem; }
+.dossie .pista { margin-left: 0; }
+.pista::before { content: "> "; color: var(--sinal); }
+
+/* ---------- Anexo: disco de cifra ---------- */
+
+.anexo { margin-top: var(--e4); }
+
+.subtitulo {
+  margin: 0 0 var(--e2);
+  font: 600 1.05rem/1.2 var(--fonte-titulo);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--fg-suave);
+}
+
+.mensagem-cifrada {
+  margin: 0;
+  padding: var(--e3) clamp(1rem, 3vw, 1.75rem);
+  border: 1px solid var(--linha);
+  background: var(--bg-elevado);
+  font: 500 1rem/1.9 var(--fonte-mono);
+  letter-spacing: .14em;
+  word-spacing: .25em;
+}
+
+.disco {
+  display: grid;
+  grid-template-columns: repeat(13, 1fr);
+  margin-top: var(--e2);
+  border-top: 1px solid var(--linha);
+  border-left: 1px solid var(--linha);
+}
+
+@media (min-width: 720px) { .disco { grid-template-columns: repeat(26, 1fr); } }
+
+.disco span {
+  display: grid;
+  padding: .25rem 0;
+  border-right: 1px solid var(--linha);
+  border-bottom: 1px solid var(--linha);
+  text-align: center;
+  font-size: .85rem;
+  line-height: 1.5;
+}
+
+.disco span b { color: var(--fg-suave); font-weight: 400; }
+
+.legenda { margin: var(--e1) 0 0; color: var(--fg-apagado); font-size: .78rem; }
+
+.disco-controle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--e2);
+  margin-top: var(--e2);
+}
+
+.disco-controle output { min-width: 9ch; text-align: center; color: var(--sinal); }
+
+/* ---------- Painel de lâmpadas ---------- */
+
+.lampadas { display: inline-grid; gap: clamp(.35rem, 1.6vw, .6rem); margin: var(--e4) auto var(--e3); }
+
+.lampadas-linha {
+  display: grid;
+  grid-template-columns: repeat(8, clamp(1.9rem, 8vw, 2.6rem));
+  gap: clamp(.35rem, 1.6vw, .6rem);
+}
+
+.lampadas-pesos span { color: var(--fg-suave); font-size: .72rem; text-align: center; }
+
+.lampada {
+  aspect-ratio: 1;
+  border: 1px solid var(--linha);
+  border-radius: 50%;
+  background: #0d0c0b;
+}
+
+.lampada.acesa {
+  border-color: #f2b84b;
+  background: radial-gradient(circle at 40% 35%, #fff6d8, #f2b84b 45%, #a55d12 85%);
+  box-shadow: 0 0 18px -2px rgba(242, 184, 75, .7);
+}
+
+.bilhete {
+  display: inline-block;
+  margin: 0;
+  padding: .35rem .8rem;
+  border: 1px dashed var(--fg-apagado);
+  color: var(--fg-suave);
+  transform: rotate(-2deg);
+}
+
+.bilhete b { color: var(--fg); font-weight: 500; }
+
+/* ---------- Avaliação concluída ---------- */
+
+.final { width: min(66ch, 100%); }
+.final .subtitulo { margin-top: var(--e4); }
+.final p { margin-bottom: var(--e2); }
+
+.relatorio { display: grid; gap: var(--e2); margin: 0; }
+.relatorio dt { color: var(--fg); font-weight: 500; }
+.relatorio dd { margin: 0; color: var(--fg-suave); }
+
+.caminhos { margin: 0; padding-left: 1.2em; }
+.caminhos li { margin-bottom: var(--e1); color: var(--fg-suave); }
+.caminhos a { color: var(--fg); text-underline-offset: 3px; }
+.caminhos a:hover { color: var(--sinal); }
+
+.extra img {
+  display: block;
+  width: min(340px, 100%);
+  margin: var(--e2) 0;
+  border: 1px solid var(--linha);
+  filter: invert(1) sepia(.2) brightness(.85);
+}
+
+.lema { margin-top: var(--e4); color: var(--fg-apagado); letter-spacing: .3em; text-transform: uppercase; font-size: .8rem; }
 
 /* ---------- Protocolo de contenção ---------- */
 

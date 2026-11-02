@@ -18,20 +18,36 @@
 
     <main class="tela">
         <section class="etapa">
+            <div class="trilha" data-teste="1"></div>
+            <p class="cabecalho">Avaliação de aptidão · percepção</p>
             <h1 class="titulo glitch">Sejam bem&#8209;vindos</h1>
-            <p class="instrucao" data-decrypt>Descubra a combinação correta de cores.</p>
+            <p class="instrucao" data-decrypt>Todo pixel de uma tela é formado por três luzes. A trava abaixo só se abre quando as luzes são acionadas na ordem do registro:</p>
 
-            <div class="cores" role="group" aria-label="Cores">
-                <button class="cor" type="button" data-cor="red" aria-label="Vermelho" aria-pressed="false"></button>
-                <button class="cor" type="button" data-cor="blue" aria-label="Azul" aria-pressed="false"></button>
-                <button class="cor" type="button" data-cor="green" aria-label="Verde" aria-pressed="false"></button>
+            <ol class="codigos" data-intacto aria-label="Registro da trava">
+                <li>#00FF00</li>
+                <li>#0000FF</li>
+                <li>#FF0000</li>
+                <li>#00FF00</li>
+            </ol>
+
+            <div class="cores" role="group" aria-label="Luzes da trava">
+                <button class="cor" type="button" data-cor="red" aria-label="Vermelho"></button>
+                <button class="cor" type="button" data-cor="blue" aria-label="Azul"></button>
+                <button class="cor" type="button" data-cor="green" aria-label="Verde"></button>
             </div>
 
-            <div class="progresso" aria-hidden="true"><span></span><span></span><span></span></div>
+            <div class="progresso" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
             <p class="mensagem" id="msg-oculta" aria-live="polite"></p>
             <a href="pag-transicao.html" class="acao" id="link-oculto" data-transicao hidden>
-                <span>[ continuar para a segunda parte ]</span>
+                <span>[ acessar documento ]</span>
             </a>
+
+            <aside class="pistas" aria-live="polite">
+                <button class="acao acao--fraca" type="button" data-pista>[ pedir uma pista ]</button>
+                <p class="pista" hidden>Na web, toda cor é escrita como # seguido de três pares de dígitos. O primeiro par é o vermelho, o segundo é o verde e o terceiro é o azul.</p>
+                <p class="pista" hidden>FF é a luz no máximo; 00 é a luz apagada. Em cada código do registro, só uma das três luzes está acesa.</p>
+                <p class="pista" hidden>Em #00FF00, só o par do meio está aceso: é o verde. Comece por ele.</p>
+            </aside>
         </section>
     </main>
 
@@ -41,7 +57,7 @@
         const marcas = document.querySelectorAll('.progresso span');
         const linkOculto = document.getElementById('link-oculto');
         const msg = document.getElementById('msg-oculta');
-        const coresCorretas = ["red", "green", "blue"];
+        const coresCorretas = ["green", "blue", "red", "green"];
         let selecaoAtual = 0;
 
         fx.decifra(document.querySelector('.instrucao'), 1900);
@@ -54,7 +70,6 @@
 
                 if (cor.dataset.cor === coresCorretas[selecaoAtual]) {
                     selecaoAtual++;
-                    cor.setAttribute('aria-pressed', 'true');
                     msg.textContent = '';
                     msg.classList.remove('mensagem--erro');
                     fx.sfx('tique');
@@ -63,16 +78,15 @@
                     if (selecaoAtual === coresCorretas.length) {
                         fx.sfx('ok');
                         fx.surto(2);
-                        msg.textContent = 'Sequência aceita.';
+                        msg.textContent = 'Sequência aceita. Acesso ao próximo documento liberado.';
                         linkOculto.hidden = false;
                         fx.decifra(linkOculto.querySelector('span'), 900);
                         linkOculto.focus();
                     }
                 } else {
                     selecaoAtual = 0;
-                    cores.forEach((c) => c.setAttribute('aria-pressed', 'false'));
                     marca();
-                    msg.textContent = 'Sequência inválida. Recomece.';
+                    msg.textContent = 'Sequência inválida. Tentativa registrada.';
                     msg.classList.add('mensagem--erro');
                     fx.sfx('erro');
                     fx.surto(2);

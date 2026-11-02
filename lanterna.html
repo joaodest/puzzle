@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#040404">
+    <title>$##%@#</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+Runic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/cicada.css">
+</head>
+
+<body>
+    <div class="runas"></div>
+    <div class="runas runas--direita"></div>
+
+    <main class="tela">
+        <section class="etapa">
+            <div class="trilha" data-teste="4"></div>
+            <p class="cabecalho">Adendo 3301-B · registro de incidente</p>
+            <h1 class="titulo glitch">Ligado, desligado</h1>
+            <p class="instrucao" data-decrypt>Durante a varredura do Item 3301, foi encontrado um painel de lâmpadas. Cada linha do painel guarda um único símbolo.</p>
+
+            <div class="lampadas" id="painel" data-intacto>
+                <div class="lampadas-linha lampadas-pesos" aria-label="Valor de cada coluna">
+                    <span>128</span><span>64</span><span>32</span><span>16</span><span>8</span><span>4</span><span>2</span><span>1</span>
+                </div>
+            </div>
+
+            <p class="bilhete" data-intacto>Bilhete recuperado junto ao painel: <b>A = 65</b></p>
+
+            <p class="instrucao">O painel não possui campo de entrada. O Dr. <span class="censura">██████</span> deixou apenas uma anotação: “a porta é o próprio endereço”.</p>
+
+            <aside class="pistas" aria-live="polite">
+                <button class="acao acao--fraca" type="button" data-pista>[ pedir uma pista ]</button>
+                <p class="pista" hidden>Cada linha é uma letra. Cada lâmpada acesa vale o número escrito acima dela: some os valores das lâmpadas acesas.</p>
+                <p class="pista" hidden>Se A é 65, então B é 66, C é 67, e assim por diante. A primeira linha soma 64 + 4 + 2 = 70: é a letra F.</p>
+                <p class="pista" hidden>Olhe a barra de endereço: ela termina em lanterna.html. Troque “lanterna” pela palavra que as lâmpadas formam e aperte Enter.</p>
+            </aside>
+        </section>
+    </main>
+
+    <script src="assets/cicada.js"></script>
+    <script>
+        const painel = document.getElementById('painel');
+        ['01000110', '01000001', '01010010', '01001111', '01001100'].forEach((bits, i) => {
+            const linha = document.createElement('div');
+            linha.className = 'lampadas-linha';
+            linha.setAttribute('role', 'img');
+            linha.setAttribute('aria-label', `Linha ${i + 1}: ${[...bits].map((b) => (b === '1' ? 'acesa' : 'apagada')).join(', ')}`);
+            linha.innerHTML = [...bits].map((b) => `<span class="lampada${b === '1' ? ' acesa' : ''}"></span>`).join('');
+            painel.append(linha);
+        });
+        fx.decifra(document.querySelector('.instrucao'), 1900);
+    </script>
+</body>
+
+</html>
