@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#040404">
+    <title>$##%@#</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+Runic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/cicada.css">
+</head>
+
+<body>
+    <div class="runas"></div>
+    <div class="runas runas--direita"></div>
+
+    <main class="tela">
+        <article class="dossie">
+            <div class="trilha" data-teste="3"></div>
+            <header class="dossie-cabeca">
+                <h1 class="titulo glitch">Entrevista 3301-1</h1>
+                <span class="carimbo">Nível 3</span>
+            </header>
+
+            <dl class="campos">
+                <div>
+                    <dt>Entrevistado</dt>
+                    <dd>Candidato(a) nº <span class="censura">████</span>, avaliação interrompida</dd>
+                </div>
+                <div>
+                    <dt>Entrevistador</dt>
+                    <dd>Dr. <span class="censura">██████</span></dd>
+                </div>
+                <div>
+                    <dt>Prefácio</dt>
+                    <dd>O entrevistado foi localizado após 31 horas sem contato, de posse de um caderno com uma
+                        mensagem cifrada e de um disco de cifra.</dd>
+                </div>
+            </dl>
+
+            <section class="terminal" aria-label="Registro da entrevista">
+                <div class="terminal-barra"><span>registro_3301-1.log</span><span class="led"></span></div>
+                <div class="terminal-corpo">
+                    <p class="ln" data-decrypt>&lt;Início do registro&gt;</p>
+                    <p class="ln ln--espaco" data-pausa="300"><b>Dr. <span class="censura">██████</span>:</b> Você disse que encontrou uma mensagem. Como ela era?</p>
+                    <p class="ln" data-pausa="400"><b>Entrevistado:</b> Só letras. Nenhuma palavra fazia sentido. Era como se alguém tivesse girado o alfabeto.</p>
+                    <p class="ln" data-pausa="200"><b>Dr. <span class="censura">██████</span>:</b> Girado quanto?</p>
+                    <p class="ln" data-pausa="500"><b>Entrevistado:</b> Ele só repetia uma coisa: “a chave é o número de luzes de um pixel”. Depois disso, sumiu.</p>
+                    <p class="ln" data-pausa="200"><b>Dr. <span class="censura">██████</span>:</b> Quem é “ele”?</p>
+                    <p class="ln" data-pausa="400"><b>Entrevistado:</b> [DADOS EXPURGADOS]</p>
+                    <p class="ln" data-pausa="200"><b>Dr. <span class="censura">██████</span>:</b> E o padrão <span class="sigilo">$##%@#</span>?</p>
+                    <p class="ln" data-pausa="300"><b>Entrevistado:</b> Está em todo lugar. Na tela, nos cadernos, nos sonhos.</p>
+                    <p class="ln ln--espaco ln--alerta"><b>&lt;Fim</b> $##%%@#%@!@~#%~@#@#$ <b>do registro&gt;</b></p>
+                    <p class="ln ln--espaco ln--sistema"><b>Nota de encerramento:</b> A mensagem e o disco recuperados com o entrevistado seguem no Anexo 3301-1-A.</p>
+                </div>
+            </section>
+
+            <section class="anexo" id="disco" aria-labelledby="anexo-titulo" data-intacto>
+                <h2 class="subtitulo" id="anexo-titulo">Anexo 3301-1-A · mensagem e disco de cifra</h2>
+                <p class="mensagem-cifrada" id="mensagem">VH YRFH FRQVHJXH OHU LVWR, TXHEURX D FLIUD TXH MXOLR FHVDU XVDYD KD GRLV PLO DQRV. HOD WHP VR YLQWH H FLQFR FKDYHV: XP FRPSXWDGRU WHVWD WRGDV DQWHV GH YRFH SLVFDU. D SDODYUD VHJXLQWH: ODQWHUQD.</p>
+                <div class="disco" id="faixa" aria-hidden="true"></div>
+                <p class="legenda">Em cima, a letra que aparece na mensagem. Embaixo, a letra que ela esconde.</p>
+                <div class="disco-controle">
+                    <button class="acao" type="button" id="menos" aria-label="Girar o disco para trás">[ ← ]</button>
+                    <output id="chave" aria-live="polite">chave 0</output>
+                    <button class="acao" type="button" id="mais" aria-label="Girar o disco para a frente">[ → ]</button>
+                </div>
+            </section>
+
+            <nav class="acoes" aria-label="Navegação">
+                <button class="acao" type="button" data-console="console">[ responder ]</button>
+            </nav>
+
+            <aside class="pistas" aria-live="polite">
+                <button class="acao acao--fraca" type="button" data-pista>[ pedir uma pista ]</button>
+                <p class="pista" hidden>Cada letra da mensagem foi trocada por outra, alguns passos à frente no alfabeto. Gire o disco e observe a mensagem mudar.</p>
+                <p class="pista" hidden>A chave é um número. O entrevistado deu a pista: de quantas luzes é feito um pixel? O primeiro teste respondeu isso.</p>
+                <p class="pista" hidden>A chave é 3. Leia a última frase da mensagem e responda com a palavra que ela indica.</p>
+            </aside>
+        </article>
+    </main>
+
+    <dialog class="console" id="console" aria-labelledby="console-titulo">
+        <form>
+            <p class="ln on ln--sistema" id="console-titulo">&gt; terminal da Fundação · autenticação requerida</p>
+            <div class="console-entrada">
+                <label for="senha">&gt; palavra seguinte:</label>
+                <input id="senha" name="senha" type="text" autocomplete="off" autocapitalize="off"
+                    spellcheck="false" required>
+            </div>
+            <div class="console-saida" aria-live="polite"></div>
+            <div class="console-rodape">
+                <button class="acao" type="submit">[ enviar ]</button>
+                <button class="acao acao--fraca" type="button" data-fecha>[ cancelar ]</button>
+            </div>
+        </form>
+    </dialog>
+
+    <script src="assets/cicada.js"></script>
+    <script>
+        const ALFABETO = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const mensagem = document.getElementById('mensagem');
+        const faixa = document.getElementById('faixa');
+        const saidaChave = document.getElementById('chave');
+        const cifrada = mensagem.textContent;
+        let chave = 0;
+
+        // Cifra de César: cada letra volta "chave" posições no alfabeto
+        const volta = (letra) => ALFABETO[(ALFABETO.indexOf(letra) - chave + 26) % 26];
+
+        function gira(passo) {
+            chave = (chave + passo + 26) % 26;
+            saidaChave.textContent = `chave ${chave}`;
+            mensagem.textContent = cifrada.replace(/[A-Z]/g, volta);
+            faixa.innerHTML = [...ALFABETO].map((l) => `<span><b>${l}</b>${volta(l)}</span>`).join('');
+        }
+
+        gira(0);
+        document.getElementById('menos').addEventListener('click', () => { gira(-1); fx.sfx('tique'); });
+        document.getElementById('mais').addEventListener('click', () => { gira(1); fx.sfx('tique'); });
+        setTimeout(() => fx.revela(document.querySelectorAll('.terminal-corpo .ln'), 140), 900);
+    </script>
+</body>
+
+</html>

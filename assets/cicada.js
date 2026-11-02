@@ -125,7 +125,7 @@
     if (reduz || !tela) return;
     const nos = [];
     const andarilho = document.createTreeWalker(tela, NodeFilter.SHOW_TEXT, {
-      acceptNode: (n) => (n.nodeValue.trim().length > 6 && !n.parentElement.closest('[data-decrypt], .censura, .sigilo')
+      acceptNode: (n) => (n.nodeValue.trim().length > 6 && !n.parentElement.closest('[data-decrypt], [data-intacto], .censura, .sigilo, .tarja')
         ? NodeFilter.FILTER_ACCEPT
         : NodeFilter.FILTER_REJECT),
     });
@@ -279,6 +279,96 @@
     aviso.innerHTML = '<span class="glitch" data-text="Protocolo de contenção ativo">Protocolo de contenção ativo</span>';
     camada('fx-flash');
   }
+
+  // ---------- Portas: toda resposta é o nome de uma página; se a página existe, a porta abre ----------
+  const normaliza = (s) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]/g, '');
+
+  async function porta(resposta) {
+    const nome = normaliza(resposta);
+    if (!nome) return null;
+    try {
+      const r = await fetch(`${nome}.html`, { method: 'HEAD', cache: 'no-store' });
+      return r.ok ? `${nome}.html` : null;
+    } catch {
+      return null;
+    }
+  }
+
+  document.querySelectorAll('dialog.console').forEach((dlg) => {
+    const campo = dlg.querySelector('input');
+    const saida = dlg.querySelector('.console-saida');
+    let ocupado = false;
+    let erros = 0;
+
+    const escreve = async (texto, classe = '') => {
+      const ln = document.createElement('p');
+      ln.className = `ln on ${classe}`;
+      ln.textContent = texto;
+      saida.append(ln);
+      await decifra(ln, 500);
+      await espera(300);
+    };
+
+    document.querySelectorAll(`[data-console="${dlg.id}"]`).forEach((b) => b.addEventListener('click', () => {
+      if (ocupado) return;
+      saida.replaceChildren();
+      campo.value = '';
+      dlg.showModal();
+      campo.focus();
+    }));
+    dlg.querySelector('[data-fecha]')?.addEventListener('click', () => { if (!ocupado) dlg.close(); });
+    dlg.addEventListener('cancel', (e) => { if (ocupado) e.preventDefault(); });
+
+    dlg.querySelector('form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (ocupado) return;
+      ocupado = true;
+      const resposta = campo.value;
+      campo.value = '';
+      saida.replaceChildren();
+      await escreve('> verificando credencial...', 'ln--sistema');
+      const url = await porta(resposta);
+      if (url) {
+        sfx('ok');
+        await escreve('> credencial válida. acesso liberado.');
+        await espera(600);
+        dlg.close();
+        sai(url);
+      } else {
+        erros++;
+        sfx('erro');
+        surto(2);
+        await escreve('> credencial inválida. tentativa registrada.', 'ln--alerta');
+        if (erros >= 3) {
+          await escreve('> tentativas excedidas. iniciando protocolo de contenção.', 'ln--alerta');
+          contencao();
+        }
+        campo.focus();
+      }
+      ocupado = false;
+    });
+  });
+
+  // ---------- Pistas: cada pedido revela a próxima ----------
+  document.querySelectorAll('[data-pista]').forEach((botao) => {
+    const pistas = [...botao.parentElement.querySelectorAll('.pista')];
+    botao.addEventListener('click', () => {
+      const proxima = pistas.find((p) => p.hidden);
+      if (!proxima) return;
+      proxima.hidden = false;
+      decifra(proxima, 700);
+      sfx('tique');
+      if (!pistas.some((p) => p.hidden)) botao.hidden = true;
+    });
+  });
+
+  // ---------- Trilha: em qual dos quatro testes o candidato está ----------
+  document.querySelectorAll('.trilha').forEach((t) => {
+    const atual = Number(t.dataset.teste);
+    t.setAttribute('role', 'img');
+    t.setAttribute('aria-label', atual > 4 ? 'Todos os testes concluídos' : `Teste ${atual} de 4`);
+    t.innerHTML = [1, 2, 3, 4].map((n) => `<span class="${n < atual ? 'on' : n === atual ? 'atual' : ''}"></span>`).join('');
+  });
 
   window.fx = { surto, corrompe, decifra, revela, sfx, sai, contencao, espera };
 })();

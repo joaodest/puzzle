@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#040404">
+    <title>$##%@#</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+Runic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/cicada.css">
+</head>
+
+<body>
+    <img class="mariposa" src="assets/moth.png" alt="">
+    <div class="runas"></div>
+    <div class="runas runas--direita"></div>
+
+    <main class="tela">
+        <article class="final">
+            <div class="trilha" data-teste="5"></div>
+            <p class="cabecalho">Memorando interno · Departamento de Recrutamento</p>
+            <h1 class="titulo glitch">Avaliação concluída</h1>
+            <p class="ln ln--espaco" data-decrypt>Resultado: APROVADO(A).</p>
+            <p class="ln" data-decrypt>A mariposa sempre procura a luz. Você também procurou.</p>
+
+            <h2 class="subtitulo">Relatório de desempenho</h2>
+            <dl class="relatorio">
+                <div>
+                    <dt>Percepção: cores em hexadecimal</dt>
+                    <dd>O(a) candidato(a) leu #00FF00 como quem lê uma palavra. É assim que quem desenvolve sites escreve cada cor da tela.</dd>
+                </div>
+                <div>
+                    <dt>Documento: vazamento de dados</dt>
+                    <dd>O(a) candidato(a) encontrou uma palavra de acesso debaixo de uma tarja que só pintava por cima do texto. Erros assim já expuseram documentos de governos e empresas, e encontrá-los é o trabalho de quem atua com segurança da informação.</dd>
+                </div>
+                <div>
+                    <dt>Entrevista: criptografia</dt>
+                    <dd>O(a) candidato(a) quebrou a cifra de César. Testar todas as chaves se chama força bruta. As cifras usadas hoje têm tantas chaves que testar todas levaria mais tempo do que a idade do universo.</dd>
+                </div>
+                <div>
+                    <dt>Painel: binário e endereços</dt>
+                    <dd>O(a) candidato(a) leu lâmpadas como letras e abriu uma porta escrevendo na barra de endereço. Todo texto, foto e vídeo do seu celular é guardado em zeros e uns, e todo site é um conjunto de endereços que alguém programou.</dd>
+                </div>
+            </dl>
+
+            <h2 class="subtitulo">Nota do avaliador</h2>
+            <p>Nada disso exige talento especial. Exige o que você acabou de demonstrar: atenção, paciência e vontade de olhar por trás das coisas. É exatamente isso que se faz na área de tecnologia, todos os dias.</p>
+
+            <h2 class="subtitulo">Próximos passos recomendados</h2>
+            <ul class="caminhos">
+                <li><a href="https://olimpiada.ic.unicamp.br/" target="_blank" rel="noopener">Olimpíada Brasileira de Informática</a>: competição para estudantes, com provas para quem ainda não programa e para quem já programa.</li>
+                <li><a href="https://www.cursoemvideo.com/" target="_blank" rel="noopener">Curso em Vídeo</a>: cursos gratuitos de programação, em português.</li>
+                <li><a href="https://picoctf.org/" target="_blank" rel="noopener">picoCTF</a>: desafios de segurança como estes, do básico ao avançado, em inglês.</li>
+            </ul>
+
+            <section class="extra" aria-labelledby="extra-titulo">
+                <h2 class="subtitulo" id="extra-titulo">Adendo 3301-Ω · desafio extra</h2>
+                <p>Este documento foi encontrado no fim do caminho original. Ele usa a mesma cifra, mas com outra chave e em outra língua. Responda com as três palavras que a mensagem usa para chamar a Terra.</p>
+                <img src="assets/cypher.jpg" alt="Folha ornamentada com cigarras e uma mensagem cifrada em letras maiúsculas.">
+                <nav class="acoes" aria-label="Desafio extra">
+                    <a class="acao" href="mariposa.html#disco" target="_blank" rel="noopener">[ abrir o disco de cifra ]</a>
+                    <button class="acao" type="button" data-console="console">[ responder ]</button>
+                </nav>
+            </section>
+
+            <p class="lema">Assegurar. Conter. Proteger.</p>
+        </article>
+    </main>
+
+    <dialog class="console" id="console" aria-labelledby="console-titulo">
+        <form>
+            <p class="ln on ln--sistema" id="console-titulo">&gt; terminal da Fundação · autenticação requerida</p>
+            <div class="console-entrada">
+                <label for="senha">&gt; resposta:</label>
+                <input id="senha" name="senha" type="text" autocomplete="off" autocapitalize="off"
+                    spellcheck="false" required>
+            </div>
+            <div class="console-saida" aria-live="polite"></div>
+            <div class="console-rodape">
+                <button class="acao" type="submit">[ enviar ]</button>
+                <button class="acao acao--fraca" type="button" data-fecha>[ cancelar ]</button>
+            </div>
+        </form>
+    </dialog>
+
+    <script src="assets/cicada.js"></script>
+    <script>
+        setTimeout(() => fx.revela(document.querySelectorAll('.final .ln'), 400), 900);
+        console.log('%c%s', 'color:#d81e2b;font:600 16px monospace', 'Você abriu o console do navegador. Quem programa passa o dia aqui. Bem-vindo(a).');
+    </script>
+</body>
+
+</html>

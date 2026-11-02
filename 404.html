@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#040404">
+    <title>$##%@#</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+Runic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/puzzle/assets/cicada.css">
+</head>
+
+<body>
+    <div class="runas"></div>
+    <div class="runas runas--direita"></div>
+
+    <main class="tela">
+        <section class="etapa">
+            <p class="cabecalho">Erro 404</p>
+            <h1 class="titulo glitch">Documento inexistente</h1>
+            <p class="mensagem mensagem--erro" id="caminho"></p>
+            <p class="instrucao">Nenhum documento com esse nome foi encontrado no Item 3301, ou ele foi expurgado. Confira a palavra e tente de novo.</p>
+            <button class="acao" type="button" onclick="history.length > 1 ? history.back() : location.assign('/puzzle/')">[ voltar ]</button>
+        </section>
+    </main>
+
+    <script src="/puzzle/assets/cicada.js"></script>
+    <script>
+        document.getElementById('caminho').textContent = `> ${decodeURIComponent(location.pathname.split('/').pop())}: [DADOS EXPURGADOS]`;
+    </script>
+</body>
+
+</html>
